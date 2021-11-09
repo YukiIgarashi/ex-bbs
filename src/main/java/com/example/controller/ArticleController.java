@@ -57,14 +57,14 @@ public class ArticleController {
 	 * @return
 	 */
 	@RequestMapping("/insert")
-	public String insertArticle(ArticleForm form) {
+	public String insertArticle(ArticleForm form,Model model) {
 		
 		Article article = new Article();
 		BeanUtils.copyProperties(form, article);
 		
 		repository.insert(article);
 		
-		return "bbs";
+		return index(model);
 		
 	}
 	
@@ -74,11 +74,11 @@ public class ArticleController {
 	 * @return
 	 */
 	@RequestMapping("/delete")
-	public String deleteArticle(Integer id) {
+	public String deleteArticle(Integer id,Model model) {
 		
 		repository.deleteById(id);
 		
-		return "bbs";
+		return index(model);
 		
 	}
 

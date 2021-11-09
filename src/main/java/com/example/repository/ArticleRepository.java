@@ -40,7 +40,7 @@ public class ArticleRepository {
 	 */
 	public List<Article> findAll() {
 		
-		String sql ="SELECT * FROM articles;";
+		String sql ="SELECT * FROM articles ORDER BY id DESC;";
 		
 		return template.query(sql, ARTICLE_ROW_MAPPER);
 		
