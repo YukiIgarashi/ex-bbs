@@ -5,7 +5,7 @@ public class Comment {
 	private Integer id;
 	private String name;
 	private String content;
-	private Integer artificleid;
+	private Integer articleId;
 	
 	public Integer getId() {
 		return id;
@@ -25,15 +25,15 @@ public class Comment {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Integer getArtificleid() {
-		return artificleid;
+	public Integer getArticleId() {
+		return articleId;
 	}
-	public void setArtificleid(Integer artificleid) {
-		this.artificleid = artificleid;
+	public void setArticleId(Integer articleId) {
+		this.articleId = articleId;
 	}
 	@Override
 	public String toString() {
-		return "Comment [id=" + id + ", name=" + name + ", content=" + content + ", artificleid=" + artificleid + "]";
+		return "Comment [id=" + id + ", name=" + name + ", content=" + content + ", articleId=" + articleId + "]";
 	}
 	
 	

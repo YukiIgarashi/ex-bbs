@@ -9,7 +9,7 @@ public class CommentForm {
 	
 	private String name;
 	private String content;
-	private String artificleid;
+	private String artificleId;
 	
 	public String getName() {
 		return name;
@@ -23,15 +23,15 @@ public class CommentForm {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getArtificleid() {
-		return artificleid;
+	public String getArtificleId() {
+		return artificleId;
 	}
-	public void setArtificleid(String artificleid) {
-		this.artificleid = artificleid;
+	public void setArtificleId(String artificleId) {
+		this.artificleId = artificleId;
 	}
 	@Override
 	public String toString() {
-		return "CommentForm [name=" + name + ", content=" + content + ", artificleid=" + artificleid + "]";
+		return "CommentForm [name=" + name + ", content=" + content + ", artificleId=" + artificleId + "]";
 	}
 	
 	
