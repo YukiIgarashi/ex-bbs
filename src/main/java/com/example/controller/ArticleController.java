@@ -6,6 +6,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -81,8 +83,12 @@ public class ArticleController {
 	 * @return
 	 */
 	@RequestMapping("/insert")
-	public String insertArticle(ArticleForm form,Model model) {
+	public String insertArticle(@Validated ArticleForm form,BindingResult result,Model model) {
 		
+		if(result.hasErrors()) {
+			//return "redirect:/article/index";
+			return index(model);
+		}
 		Article article = new Article();
 		
 		BeanUtils.copyProperties(form, article);
@@ -114,8 +120,15 @@ public class ArticleController {
 	 * @return
 	 */
 	@RequestMapping("/insertComment")
-	public String insertComment(CommentForm form,Model model,Integer articleId) {
+	public String insertComment(@Validated CommentForm form,BindingResult result,Model model,Integer articleId) {
 		
+		if(result.hasErrors()) {
+			//form.setArticleId(Integer.toString(articleId));
+			
+			model.addAttribute("checkId", articleId);
+			//return "redirect:/article/index";
+			return index(model);
+		}
 		Comment comment = new Comment();
 		
 		BeanUtils.copyProperties(form, comment);

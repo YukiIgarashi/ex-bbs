@@ -1,8 +1,8 @@
 package com.example.form;
 
-import java.util.List;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
-import com.example.domain.Comment;
 
 /**
  * 記事用フォームクラス
@@ -10,8 +10,11 @@ import com.example.domain.Comment;
  *
  */
 public class ArticleForm {
-
+	
+	@NotBlank(message="名前を入力してください")
+	@Size(max=50,message = "名前は50文字以内で入力してください")
 	private String name;
+	@NotBlank(message="内容を入力してください")
 	private String content;
 	public String getName() {
 		return name;

@@ -1,5 +1,8 @@
 package com.example.form;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 /**
  * コメント用フォームクラス
  * @author igayuki
@@ -7,9 +10,12 @@ package com.example.form;
  */
 public class CommentForm {
 	
+	@NotBlank(message="名前を入力してください")
+	@Size(max=50,message = "名前は50文字以内で入力してください")
 	private String name;
+	@NotBlank(message="内容を入力してください")
 	private String content;
-	private String artificleId;
+	private String articleId;
 	
 	public String getName() {
 		return name;
@@ -23,15 +29,15 @@ public class CommentForm {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getArtificleId() {
-		return artificleId;
+	public String getArticleId() {
+		return articleId;
 	}
-	public void setArtificleId(String artificleId) {
-		this.artificleId = artificleId;
+	public void setArticleId(String articleId) {
+		this.articleId = articleId;
 	}
 	@Override
 	public String toString() {
-		return "CommentForm [name=" + name + ", content=" + content + ", artificleId=" + artificleId + "]";
+		return "CommentForm [name=" + name + ", content=" + content + ", articleId=" + articleId + "]";
 	}
 	
 	
